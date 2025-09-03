@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import Videos from "./components/3dArchitecturalDesigns";
+import Footer from "./components/Footer";
+import VideoModal from "./components/VideoModal";
+import BackToTop from "./components/BackToTop";
+import ProgressBar from "./components/ProgressBar";
+import About from "./components/About";
+import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
 
-function App() {
+const App: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [videoSrc, setVideoSrc] = useState("");
+
+  const openModal = (src: string) => {
+    setVideoSrc(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setVideoSrc("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ProgressBar />
+      <Navbar />
+      <Hero />
+      <Videos openModal={openModal} />
+      <About />
+      <Services />
+      <Portfolio />
+      <Contact />
+      <Footer />
+      <VideoModal isOpen={isModalOpen} src={videoSrc} onClose={closeModal} />
+      <BackToTop />
     </div>
   );
-}
+};
 
 export default App;
