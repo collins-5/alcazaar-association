@@ -8,7 +8,7 @@ import {
 
 const About: React.FC = () => {
   return (
-    <section className="py-2 bg-black" id="about" data-aos="fade-up">
+    <section className="py-2 bg-white" id="about" data-aos="fade-up">
       <div className="max-w-[1280px] mx-auto px-6">
         <h2 className="text-center font-serif text-[clamp(1.8rem,4vw,2.8rem)] font-bold mb-5 text-primary relative after:content-[''] after:absolute after:bottom-[-12px] after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-[3px] after:bg-gradient-to-r after:from-primary after:to-accent after:rounded">
           About Titus Oduor
